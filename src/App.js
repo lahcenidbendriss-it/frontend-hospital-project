@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom'; // Remove BrowserRouter as Router
+import Nav from './navbar/Nav';
+import Info from './Info';
+import AddInfo from './Addinfo';
+import UpdateInfo from './Updateinfo'; 
+import LoginPage from './identification/Loginpage';
+import Employepage from './Employepage';
 function App() {
+  const [userRole, setUserRole] = useState(null);
+  const handleLogin = (role) => {
+    setUserRole(role);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!userRole && <LoginPage onLogin={handleLogin} />}
+      {userRole === 'user' && <Employepage />}
+      {userRole === 'admin' && (
+        <>
+          <Nav />
+          <Routes>
+            <Route path="/" element={<AddInfo />} />
+            <Route path="/info" element={<Info />} />
+            <Route path="/update/:ppr" element={<UpdateInfo />} /> 
+          </Routes>
+        </>
+      )}
     </div>
   );
 }
