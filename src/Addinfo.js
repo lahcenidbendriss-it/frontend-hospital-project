@@ -6,6 +6,7 @@ import Footer from './Footer';
 
 
 function AddInfo() {
+ 
   const [values, setValues] = useState({
     ppr: "",
     nom: "",
@@ -28,7 +29,7 @@ function AddInfo() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post('http://localhost:3030/create', values)
+    axios.post('https://backend-hospital-project.onrender.com/create', values)
     .then(res =>navigate('/info'))
     .catch(err =>console.log(err))
 

@@ -30,7 +30,7 @@ function Info() {
 
 
     useEffect(() => {
-        axios.get('http://localhost:3030')
+        axios.get('https://backend-hospital-project.onrender.com')
             .then(res => setEmployees(res.data))
             .catch(err => console.log(err));
     }, []);
@@ -39,7 +39,7 @@ function Info() {
     const handleDelete = (ppr) => {
         const confirmation = window.confirm('Are you sure you want to delete this employee?');
         if (confirmation) { 
-            axios.delete(`http://localhost:3030/delete/${ppr}`)
+            axios.delete(`https://backend-hospital-project.onrender.com/delete/${ppr}`)
                 .then(res => {
                     console.log(res.data);
                     setEmployees(employees.filter(employee => employee.PPR !== ppr));

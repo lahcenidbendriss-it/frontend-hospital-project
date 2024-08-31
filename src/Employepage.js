@@ -10,7 +10,7 @@ function Employepage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://localhost:3030/getrecord/${ppr}`);
+      const response = await fetch(`https://backend-hospital-project.onrender.com/getrecord/${ppr}`);
       if (!response.ok) {
         throw new Error('Employee not found');
       }
