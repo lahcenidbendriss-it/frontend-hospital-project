@@ -78,13 +78,13 @@ function Employepage() {
             </thead>
             <tbody>
               {employeeInfo.map(employee => (
-                <tr key={employee.PPR}>
-                  <td>{employee.Nom}</td>
-                  <td>{employee.Prenom}</td>
-                  <td>{employee.Grade}</td>
-                  <td>{employee.Type_conge}</td>
-                  <td>{employee.Date_de_conge}</td>
-                  <td>{employee.Statu}</td>
+                <tr key={employee.ppr}>
+                  <td>{employee.nom}</td>
+                  <td>{employee.prenom}</td>
+                  <td>{employee.grade}</td>
+                  <td>{employee.type_conge}</td>
+                  <td>{employee.date_de_conge}</td>
+                  <td>{employee.statu}</td>
                   <td>{employee.service}</td>
                   <td>
                     <button onClick={() => handleDownload(employee)} className='btn btn-primary'>
