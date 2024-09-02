@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { handleDownload } from './Info';
 import Footer from './Footer';
+import NavbarEmployer from './navbarEmployer';
+
 
 function Employepage() {
   const [ppr, setPpr] = useState('');
@@ -26,6 +28,9 @@ function Employepage() {
 
   return (
     <div>
+    <NavbarEmployer />
+
+    
       <section>
         <div className='container mt-5 pt-5'>
           <div className='row'>
